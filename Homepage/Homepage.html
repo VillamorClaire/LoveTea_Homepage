@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Verdana, sans-serif;
+        }
+        
+        .mySlides {
+            display: none;
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        
+        .slideshow-container {
+            max-width: 1000px;
+            margin-left: 3%;
+            margin-right: 31%;
+            margin-bottom: 0%;
+            padding: 0%;
+        }
+        
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .dot {
+            background-color: #bbb;
+            border-radius: 20%;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active {
+            background-color: #717171;
+        }
+        
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        @media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px
+            }
+        }
+        
+        p {
+            margin-top: 0;
+            margin-bottom: 0%;
+            margin-left: 1%;
+            text-align: left;
+        }
+        
+        .container {
+            width: 1333px;
+            height: 450;
+            background: #f5dcbb;
+        }
+        
+        .container1 {
+            width: 1350px;
+            height: 45px;
+            background: #080808;
+        }
+        
+        img {
+            width: 30%;
+            height: 7%;
+            margin-top: .5%;
+            margin-bottom: .5%;
+            margin-left: .5%;
+        }
+        
+        .container3 {
+            border-radius: 5px;
+            background-color: #f1f0f0;
+            padding: 0%;
+            width: 80%;
+            margin-left: 150px;
+        }
+        
+        .column {
+            float: left;
+            width: 46%;
+            padding: 0px;
+            margin-top: 0px;
+        }
+        
+        .column1 {
+            float: left;
+            width: 30.7%;
+            padding: 0px;
+        }
+        /* Clearfix (clear floats) */
+        
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            font-weight: bold;
+        }
+        
+        li {
+            float: right;
+        }
+        
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover {
+            background-color: #111;
+        }
+        
+        .search-container {
+            float: right;
+            padding: 0;
+            background: rgb(129, 128, 128);
+            border: none;
+            cursor: pointer;
+            height: 47px;
+        }
+        
+        input[type=text] {
+            width: 200px;
+            height: 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 10px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+        
+        input[type=text]:focus {
+            width: 105%;
+        }
+        
+        .container4 {
+            background-image: url(teaBg.jpg);
+            padding: 0%;
+            width: 100%;
+        }
+        
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        .navbar a {
+            float: right;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        .dropdown {
+            float: right;
+            overflow: hidden;
+        }
+        
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(119, 117, 117);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3dcdc;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgb(253, 253, 253);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .container2 {
+            position: relative;
+            width: 100%;
+        }
+        
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+        
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .container2:hover .image {
+            opacity: 0.3;
+        }
+        
+        .container2:hover .middle {
+            opacity: 1;
+        }
+        
+        .btn1 {
+            background-color: #4e4b4d;
+            color: white;
+            font-size: 16px;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        a.five:link {
+            color: #ff0000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a.five:visited {
+            color: #111111;
+            text-decoration: none;
+        }
+        
+        a.five:hover {
+            text-decoration: underline;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: rgb(66, 66, 66);
+            background-color: #f7b178;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 9px #999;
+        }
+        
+        .button:hover {
+            background-color: #ffcb9b
+        }
+        
+        .button:active {
+            background-color: #fab379;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="leaf.png" style="width: 450px; margin-left: 20px;"> &nbsp;
+    </div>
+    <ul>
+        <li>
+            <div class="search-container">
+                <a>
+                    <form>
+                        <input type="text" name="search" placeholder="Search Favorites...">
+                    </form>
+                </a>
+            </div>
+
+            <div class="navbar">
+                <a href="#Login">Login</a>
+                <a href="#Register">Register</a>
+                <a href="#TrackOrder">Track Order</a>
+                <a href="#cart">Cart</a>
+                <div class="dropdown">
+                    <button style="font-weight: bold;" class="dropbtn">Menu 
+            
+            </button>
+                    <div class="dropdown-content">
+                        <p style="padding: 5px;">FEATURED</p>
+                        <p style="font-weight: lighter;">
+                            <a href="#">Nutella Series</a>
+                            <a href="#">Oreo Series</a>
+                            <a href="#">Grahams Series</a>
+                            <a href="#">Fruit Tea</a>
+                            <a href="#">Grahams Series</a></p>
+                    </div>
+                </div>
+            </div>
+
+            </form>
+    </ul>
+    <div class="container4">
+        <div class="container3">
+
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+
+                    <img src="tea4.jpg" style="width:140%">
+
+                </div>
+
+                <div class="mySlides fade">
+
+                    <img src="Delivery.jpg" style="width:140%">
+
+                </div>
+
+                <div class=" mySlides fade ">
+
+                    <img src="Slide3.jpg" style="width:140% ">
+
+                </div>
+
+            </div>
+            <br>
+
+            <div style="text-align: center; ">
+                <span class="dot "></span>
+                <span class="dot "></span>
+                <span class="dot "></span>
+            </div>
+
+            <script>
+                var slideIndex = 0;
+                showSlides();
+
+                function showSlides() {
+                    var i;
+                    var slides = document.getElementsByClassName("mySlides ");
+                    var dots = document.getElementsByClassName("dot ");
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none ";
+                    }
+                    slideIndex++;
+                    if (slideIndex > slides.length) {
+                        slideIndex = 1
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active ", " ");
+                    }
+                    slides[slideIndex - 1].style.display = "block ";
+                    dots[slideIndex - 1].className += " active ";
+                    setTimeout(showSlides, 2000);
+                }
+            </script>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold; font-size: 8mm; margin-left: 4%;">Welcome to Love Tea</p>
+            <p style="font-family: Arial, Helvetica, sans-serif;  font-size: 6mm; margin-left: 4%;">Online Ordering System</p>
+            <br>
+            <div class="row">
+
+                <div class="column" style="margin-left: 35px;">
+                    <div class="container2">
+                        <img src="Nutella Series2.jpg" alt="nutella " class="image" style="width:100% ">
+                        <div class="middle">
+                            <button style="font-weight: bold;" class="button">Order Now
+            
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="column ">
+                    <div class="container2">
+                        <img src="oreo series2.jpg" alt="oreo " class="image" style="width:100% ">
+                        <div class="middle">
+                            <button style="font-weight: bold;" class="button">Order Now
+        
+                        </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column1" style="margin-left: 35px;">
+                        <div class="container2">
+                            <img src="FruitTea.jpg" alt="Fruit Tea" class="image" style="width: 100%;">
+                            <div class="middle">
+                                <button style="font-weight: bold;" class="button">Order Now
+            
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column1">
+                        <div class="container2">
+                            <img src="SNACKS.jpg" alt="Fruit Tea" class="image" style="width: 100%;">
+                            <div class="middle">
+                                <button style="font-weight: bold;" class="button">Order Now
+                
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column1">
+                        <div class="container2">
+                            <img src="MangoGrahams.jpg" alt="Fruit Tea" class="image" style="width: 100%;">
+                            <div class="middle">
+                                <button style="font-weight: bold;" class="button">Order Now
+            
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+
+                </div>
+                <br>
+                <br><br>
+                <p style="font-weight: bold; text-align: right;">
+                    FOLLOW US ON &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</p>
+                <p>
+
+                    <img src="LogoLeaf.png" alt="Logo" style="width: 10%;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <a class="five" href="#">About Us</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="five" href="#">Contact Us</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="five" href="#">Terms & Conditions</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="five" href="#">Privacy & Policy</a> &nbsp;&nbsp;
+                    <a href="#"><img src="insta.png" alt="insta" style="width: 5%;"></a>&nbsp;&nbsp;&nbsp;
+                    <a href="#"><img src="fb.png" alt="fb" style="width: 5%;"></a>&nbsp;&nbsp;&nbsp;
+                    <a href="#"><img src="twitter.png" alt="twitter" style="width: 5%;"> </a>
+                </p>
+
+
+
+
+            </div>
+            <div class="row">
+                <div class="column" style="background-color: #080808; width: 100% ; height: 30px; ">
+                    <p style="color: #eeeded; padding: 6px; text-align: center;">Location: Poblacion Kabasalan Zamboanga Sibugay</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
